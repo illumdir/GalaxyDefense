@@ -13,6 +13,10 @@ Le joueur sélectionne :
 
 L'objectif : permettre aux joueurs de créer et partager leurs compositions.
 
+## Version du jeu
+
+**v0.15.4**
+
 ## Repo GitHub
 
 https://github.com/illumdir/GalaxyDefense
@@ -48,6 +52,25 @@ GalaxyDefense/
 ├── js/                 # Logique applicative
 └── css/                # Styles
 ```
+
+## Ressources Wiki
+
+Le wiki officiel (Fandom) **bloque les requêtes automatiques (403)**. Contourner en passant par `curl` avec un user-agent navigateur :
+```bash
+curl -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" "<url>"
+```
+
+### Pages utiles
+
+| Page | URL | Contenu |
+|------|-----|---------|
+| Wiki officiel (accueil) | https://official-galaxy-defense-ftd-wiki.fandom.com/wiki/The_Official_Galaxy_Defense_Fortess_TD_Wiki | Point d'entrée |
+| Patch Notes | https://official-galaxy-defense-ftd-wiki.fandom.com/wiki/Patch_Notes | Historique des versions (documenté jusqu'à v0.14.0 au 2026-05-25) |
+| Turret Overview | https://official-galaxy-defense-ftd-wiki.fandom.com/wiki/Turret_Overview | **Source principale** : toutes les cartes combo, chain, breakthrough par tourelle + cartes du Gardien |
+| Codex Turrets | https://official-galaxy-defense-ftd-wiki.fandom.com/wiki/Codex_Turrets | Progression de déverrouillage des cartes par niveau de tourelle |
+| ARK: Rebuild | https://official-galaxy-defense-ftd-wiki.fandom.com/wiki/Expedition_-_Project_Ark:_Rebuild | Règles et mécaniques du mode ciblé |
+
+> Note : le wiki n'est pas à jour pour v0.15.4 (vérifié le 2026-05-25). À re-consulter lors des futures mises à jour.
 
 ## Données du jeu (`data/gameData.js`)
 
