@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galaxy Defense — ARK Builder</title>
+  <link rel="stylesheet" href="css/style.css?v=20">
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- 1. Données du jeu -->
+  <script src="data/gameData.js?v=20"></script>
+
+  <!-- 2. Pont : expose les const sur window -->
+  <script>
+    window.TURRETS = TURRETS;
+    window.GUARDIANS = GUARDIANS;
+    window.getAvailableComboCards = getAvailableComboCards;
+    window.getAllGuardians = getAllGuardians;
+  </script>
+
+  <!-- 3. Vue 3 global build -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+  <!-- 4. Helpers utilitaires -->
+  <script src="js/helpers.js?v=20"></script>
+
+  <!-- 5. Composants (ordre : TierRow avant CardBuilder) -->
+  <script src="js/components/TierRow.js?v=20"></script>
+  <script src="js/components/CardBuilder.js?v=20"></script>
+  <script src="js/components/TurretSelector.js?v=20"></script>
+  <script src="js/components/GuardianSelector.js?v=20"></script>
+  <script src="js/components/CompositionSummary.js?v=20"></script>
+
+  <!-- 6. Application principale -->
+  <script src="js/app.js?v=20"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "galaxy-defense-builder",
+  "version": "1.0.0",
+  "description": "Galaxy Defense - ARK Composition Builder",
+  "scripts": {
+    "download-cards": "node scripts/download-cards.js"
+  },
+  "dependencies": {
+    "jimp": "^0.22.12"
+  }
+}

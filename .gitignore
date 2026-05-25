@@ -1,0 +1,15 @@
+# Images personnelles / captures WhatsApp
+*.jpeg
+*.jpg
+!images/**/*.jpg
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+*.swp
