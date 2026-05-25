@@ -13,14 +13,29 @@ Le joueur sélectionne :
 
 L'objectif : permettre aux joueurs de créer et partager leurs compositions.
 
+## Repo GitHub
+
+https://github.com/illumdir/GalaxyDefense
+
+## Branches
+
+- `main` → production (NAS Synology / Docker). Ne jamais pousser directement.
+- `dev` → développement en cours. Merger vers `main` quand validé.
+
 ## Running
 
-Ouvrir `index.html` directement dans un navigateur, ou utiliser un serveur local pour éviter les problèmes CORS :
+Lancer le serveur de dev local :
 
 ```bash
-npx serve .
-# ou
-python -m http.server 8080
+npm run dev
+# → http://localhost:8080
+```
+
+## Secrets
+
+Le token GitHub est dans `.env` (ignoré par git) :
+```
+GITHUB_TOKEN=...
 ```
 
 ## Architecture
