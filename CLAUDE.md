@@ -137,6 +137,16 @@ Exemple : `Graviton Laser` (Laser) nécessite `gravity_vortex_gun` → visible u
 
 Les images sont cropées depuis des composites du wiki et sauvegardées sous `images/cards/{turret_id}/{slug}.png`.
 
+### Structure visuelle d'une carte
+
+Chaque image de carte contient **4 éléments visuels** :
+1. **Nom de la carte** — texte en haut (c'est ce qui a changé lors des renommages de mise à jour)
+2. **Image de la tourelle** — illustration centrale, identique pour toutes les cartes d'une même tourelle
+3. **Tier** — indique sur quel slot la carte peut être posée : 1, 2 ou 3
+4. **Description / effet** — texte de l'effet en bas
+
+> ⚠️ Le wiki officiel Fandom **n'est plus à jour** pour les nouvelles cartes (post v0.15.4). Les images ne peuvent pas être téléchargées depuis le wiki pour les cartes renommées/ajoutées en v0.15.4+.
+
 Le slug est généré à runtime par `getCardImage()` dans `js/helpers.js` :
 ```js
 cardName.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/_+$/, '')
