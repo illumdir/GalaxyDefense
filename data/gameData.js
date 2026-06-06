@@ -206,27 +206,27 @@ const TURRETS = [
     image: "https://static.wikia.nocookie.net/unofficial-gdftd-databanks/images/d/df/Beam.png/revision/latest?cb=20250820001541",
     cards: {
       normal: [
-        { name: "Beam Amplifier",   effect: "Beam DMG +50%",            tier: 1, color: "green", max_copies: 3 },
-        { name: "Beam Acceleration",effect: "Beam cooldown speed +30%", tier: 1, color: "green", max_copies: 3 },
-        { name: "Beam Expansion",   effect: "Beam width +30%",          tier: 1, color: "green", max_copies: 3 }
+        { name: "Beam Amplifier",    effect: "Beam DMG +50%",            tier: 1, color: "green", max_copies: 3 },
+        { name: "Beam Acceleration", effect: "Beam cooldown speed +30%", tier: 1, color: "green", max_copies: 3 },
+        { name: "Beam Expansion",    effect: "Beam width +30%",          tier: 1, color: "green", max_copies: 3 }
       ],
       chain: [
-        { name: "Refracted Beam",        tier: 1, color: "green", effect: "Beam splits into 2 smaller beams after hitting an enemy" },
-        { name: "Charging Beam",         tier: 1, color: "green", effect: "Beam charges for 1s before firing, DMG +100%" },
-        { name: "Refraction Enhancement",tier: 2, color: "green", requires_chain: "Refracted Beam",  effect: "Refracted beams split into 2 more mini beams" },
-        { name: "Charged Burst",         tier: 2, color: "green", requires_chain: "Charging Beam",   effect: "Charging time +0.5s, DMG +150%" },
-        { name: "Refraction Mastery",    tier: 3, color: "green", requires_chain: "Refraction Enhancement", effect: "All refracted beams deal full DMG" },
-        { name: "Overcharged Beam",      tier: 3, color: "green", requires_chain: "Charged Burst",   effect: "Charging time +1s, DMG +300%, beam width +100%" }
+        { name: "Charging Beam",          tier: 1, color: "green", effect: "Beam charges for 1s before firing, DMG +100%" },
+        { name: "Refracted Beam",         tier: 1, color: "green", effect: "Beam splits into 2 smaller beams after hitting an enemy" },
+        { name: "Charged Burst",          tier: 2, color: "green", requires_chain: "Charging Beam",         effect: "Charging time +0.5s, DMG +150%" },
+        { name: "Refraction Enhancement", tier: 2, color: "green", requires_chain: "Refracted Beam",        effect: "Refracted beams split into 2 more mini beams" },
+        { name: "Overcharged Beam",       tier: 3, color: "green", requires_chain: "Charged Burst",         effect: "Charging time +1s, DMG +300%, beam width +100%" },
+        { name: "Refraction Mastery",     tier: 3, color: "green", requires_chain: "Refraction Enhancement",effect: "All refracted beams deal full DMG" }
       ],
       combo: [
-        { name: "Energy Synergy",     tier: 2, color: "green", requires_turret: "laser",             effect: "Beam DMG +50% against enemies affected by Laser" },
-        { name: "Conductive Beam",    tier: 2, color: "green", requires_turret: "thunderbolt",       effect: "Beam applies [Conductive] effect to enemies for 3s" },
-        { name: "Spinning Energy",    tier: 3, color: "green", requires_turret: "laser",             effect: "Beam creates a spinning energy disk on hit that damages nearby enemies" },
-        { name: "Gravitational Lens", tier: 3, color: "green", requires_turret: "gravity_vortex_gun",effect: "Beam bends toward nearby enemies after hitting a target" }
+        { name: "Energy Synergy",    tier: 2, color: "green", requires_turret: "laser",             effect: "Beam DMG +50% against enemies affected by Laser" },
+        { name: "Conductive Beam",   tier: 2, color: "green", requires_turret: "thunderbolt",       effect: "Beam applies [Conductive] effect to enemies for 3s" },
+        { name: "Spinning Energy",   tier: 3, color: "green", requires_turret: "laser",             effect: "Beam creates a spinning energy disk on hit that damages nearby enemies" },
+        { name: "Gravitational Lens",tier: 3, color: "green", requires_turret: "gravity_vortex_gun",effect: "Beam bends toward nearby enemies after hitting a target" }
       ],
       breakthrough: [
-        { name: "Penetrating Beam", tier: 1, color: "purple", effect: "Beam penetration +2" },
         { name: "Energy Overload",  tier: 1, color: "purple", effect: "Beam has a 20% chance to deal double DMG" },
+        { name: "Penetrating Beam", tier: 1, color: "purple", effect: "Beam penetration +2" },
         { name: "Beam Mastery",     tier: 2, color: "purple", effect: "Beam width +50%, DMG +30%" },
         { name: "Focused Energy",   tier: 2, color: "purple", effect: "Beam DMG increases the longer it hits the same target (MAX: +200%)" }
       ]
