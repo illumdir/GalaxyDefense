@@ -4,7 +4,8 @@
   "description": "Galaxy Defense - ARK Composition Builder",
   "scripts": {
     "dev": "npx serve . -p 8080",
-    "download-cards": "node scripts/download-cards.js"
+    "download-cards": "node scripts/download-cards.js",
+    "deploy": "bash deploy.sh"
   },
   "dependencies": {
     "jimp": "^0.22.12"
