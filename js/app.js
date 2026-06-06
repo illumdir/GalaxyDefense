@@ -101,9 +101,10 @@
   const App = {
     name: 'App',
     components: {
-      TurretSelector:    window.TurretSelector,
-      CardBuilder:       window.CardBuilder,
-      CompositionSummary: window.CompositionSummary
+      TurretSelector:     window.TurretSelector,
+      CardBuilder:        window.CardBuilder,
+      CompositionSummary: window.CompositionSummary,
+      GalleryView:        window.GalleryView
     },
 
     setup: function() {
@@ -157,6 +158,7 @@
             <div class="logo">
               &#x2B21; Galaxy Defense <span class="accent">ARK</span>
               <span class="mode-badge">BUILDER</span>
+              <span class="version-tag">v0.15.4</span>
             </div>
             <nav class="step-tabs">
               <button
@@ -175,17 +177,26 @@
                 </span>
                 <span class="tab-label">{{ STEP_LABELS[i] }}</span>
               </button>
+              <div class="step-tab-sep"></div>
+              <button
+                class="step-tab gallery-tab-btn"
+                :class="{ active: state.activeStep === 'gallery' }"
+                @click="state.activeStep = 'gallery'"
+              >
+                <span class="tab-label">&#9638; Galerie</span>
+              </button>
             </nav>
           </div>
         </header>
 
         <main class="app-main">
-          <TurretSelector    v-show="state.activeStep === 'turrets'" />
-          <CardBuilder       v-show="state.activeStep === 'cards'" />
+          <TurretSelector     v-show="state.activeStep === 'turrets'" />
+          <CardBuilder        v-show="state.activeStep === 'cards'" />
           <CompositionSummary v-show="state.activeStep === 'summary'" />
+          <GalleryView        v-show="state.activeStep === 'gallery'" />
         </main>
 
-        <footer class="app-footer">
+        <footer class="app-footer" v-if="state.activeStep !== 'gallery'">
           <button
             class="btn btn-secondary"
             :disabled="state.activeStep === 'turrets'"
