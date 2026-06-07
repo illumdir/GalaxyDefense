@@ -113,15 +113,23 @@ def build_templates():
         tpl_path = os.path.join(TPL_DIR, f"{tid}.png")
         src_dir  = os.path.join(arch_dir, tid)
         best = None
+        best_brightness = -1
         for fname in sorted(os.listdir(src_dir)):
             if not fname.endswith(".png"):
                 continue
             try:
                 img = Image.open(os.path.join(src_dir, fname)).convert("RGB")
                 w, h = img.size
-                if w == CARD_W and h in (CARD_H, CARD_H - 1):
+                if not (w == CARD_W and h in (CARD_H, CARD_H - 1)):
+                    continue
+                # Mesurer la luminosité de la zone illustration (centre, sans badge)
+                import numpy as np
+                arr = np.array(img)
+                zone = arr[ILLUS_Y0+50 : ILLUS_Y1-50, 100:CARD_W-50]
+                brightness = float(np.mean(zone))
+                if brightness > best_brightness:
+                    best_brightness = brightness
                     best = img
-                    break
             except Exception:
                 continue
         if best is None:
