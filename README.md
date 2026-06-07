@@ -77,25 +77,49 @@ GalaxyDefense/
 
 ## Mettre à jour les données du jeu
 
-### Synchroniser depuis l'API communautaire
+### Workflow complet (nouvelle carte ou nouvelle tourelle)
 
-```bash
-python scripts/build-database.py
+```
+gd-database.vercel.app  (API communautaire)
+          │
+          │  1. python scripts/build-database.py
+          ▼
+      data/gd.db          (SQLite local — tourelles + cartes)
+          │
+          │  2. python scripts/sync-gamedata.py --write
+          ▼
+   data/gameData.js       (données du jeu, lues par l'app)
+          │
+          │  3. python scripts/generate-cards.py
+          ▼
+ images/cards/{id}/*.png  (visuels des cartes)
+          │
+          │  4. git add . && git commit && git push
+          ▼
+        GitHub
+          │
+          │  5. déployer sur le serveur (scp / nginx)
+          ▼
+     Production
 ```
 
-Reconstruit `data/gd.db` depuis [gd-database.vercel.app](https://gd-database.vercel.app).
+| Étape | Commande | Quand ? |
+|---|---|---|
+| 1. Rebuilder la DB | `python scripts/build-database.py` | Toujours en premier |
+| 2. Sync gameData.js | `python scripts/sync-gamedata.py --write` | Après chaque rebuild DB |
+| 3. Régénérer les images | `python scripts/generate-cards.py` | Si des cartes ont changé de nom ou d'effet |
+| 4. Commit | `git add . && git commit && git push` | Après validation |
+| 5. Déployer | copier `data/` + `images/cards/` sur le serveur | Pour mettre en prod |
 
-### Régénérer les images de cartes
+> **Vérification avant écriture** : `python scripts/sync-gamedata.py` (sans `--write`) affiche le nombre de lignes modifiées sans toucher au fichier.
 
-Après modification de `data/gameData.js` :
+### Détail des scripts
 
-```bash
-# Requiert Python + Pillow
-pip install Pillow
-python scripts/generate-cards.py
-```
+**`build-database.py`** — Reconstruit `data/gd.db` depuis [gd-database.vercel.app](https://gd-database.vercel.app).
 
-Génère 1 image PNG par carte dans `images/cards/{turret_id}/`.
+**`sync-gamedata.py`** — Lit `gd.db` et met à jour la section `cards` de chaque tourelle dans `gameData.js`. Préserve les métadonnées tourelle (images, damageType) et la section GUARDIANS. Crée un backup `gameData.js.bak` automatiquement.
+
+**`generate-cards.py`** — Génère 1 image PNG par carte (512×862 px) dans `images/cards/{turret_id}/`. Requiert Python + Pillow (`pip install Pillow`).
 
 ---
 
