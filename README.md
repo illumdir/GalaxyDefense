@@ -4,7 +4,7 @@ Outil de construction de compositions pour le mode **ARK (Expedition)** de Galax
 
 Choisissez jusqu'à 4 tourelles, un gardien, et construisez votre deck de cartes palier par palier.
 
-**Live** → http://gdb.illumdir.com
+**Live** → https://dgb.illumdir.synology.me/
 
 ---
 
